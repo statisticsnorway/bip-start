@@ -14,6 +14,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 | ------------------ | ------------ | -------- | ----------------|
 | Node | <https://nodejs.org/en/> | Current version | JavaScript runtime |
 | Yarn | <https://yarnpkg.com/getting-started/install> | Berry (latest)  | Package manager. To update later: `yarn set version latest` |
+| standardJS | <https://standardjs.com/#install> Install locally for this project | Latest | Code formatting |
 
 ### Run locally
 
@@ -28,6 +29,23 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 #### `yarn test`
+
+See the script definition for `test` in [package.json](./package.json).
+
+When you do `yarn test`, the script will check the code formatting for the entire project using `standard` (see [Requirements](#requirements) above) and then use the test library which locates any files called `*.test.js` and run their tests.
+
+To only run either code formatting control or the tests, use `yarn run`:
+
+```shell
+# To run tests: 
+yarn run react-scripts test
+
+# To run code formatting control:
+yarn run standard
+
+# To automatically fix most problems reported by `standard`:
+yarn run standard --fix
+```
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
