@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/statisticsnorway/dapla-react-reference-app"
+    "url": "https://github.com/statisticsnorway/start-bip"
   },
   "author": "Statistics Norway",
   "dependencies": {
