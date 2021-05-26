@@ -54,5 +54,20 @@
       "type": "Apache-2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**",
+      "!src/index.js",
+      "!src/**/index.js",
+      "!src/configurations/**",
+      "!src/enums/**",
+      "!src/__tests__/test-data/**"
+    ],
+    "coverageReporters": [
+      "cobertura",
+      "lcov",
+      "text"
+    ]
+  }
 }
