@@ -4,7 +4,6 @@ trigger:
   branches:
     include:
       - main
-      - stratus-731_add-pipeline
 
 resources:
   repositories:
