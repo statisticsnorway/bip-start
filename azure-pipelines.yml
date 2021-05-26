@@ -1,0 +1,55 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+name: $(Build.SourceBranch)-$(date:yyyyMMdd)$(rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+        stratus-731_add-pipeline
+
+pr:
+  branches:
+    include:
+      - main
+        stratus-731_add-pipeline
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: Hemmeligheter
+  - name: 'appName'
+    value: 'bip-start'
+  - name: imageHost
+    value: 'https://eu.gcr.io/'
+  - name: imageName
+    value: 'eu.gcr.io/prod-bip/ssb/stratus/platform-demo-app'
+  - name: repoName
+    value: 'prod-bip/ssb/stratus/platform-demo-app'
+  - name: imageTagBeforeVulnerabilityScan
+    value: 'imagescan-$(Build.SourceBranchName)-$(fullSha)'
+  - name: imageTagAfterVulnerabilityScan
+    value: $(Build.SourceBranchName)-$(fullSha)
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: statisticsnorway/azure-pipelines-templates
+      ref: refs/tags/1.1.18
+      endpoint: github
+
+jobs:
+  - template: javascript/react-complete-build.yml@templates
+    parameters:
+      appName: $(appName)
+      imageTag: $(imageTag)
+
+  - template: docker/docker-tag-for-production.yml@templates
+    parameters:
+      tagToTag: 'master-$(fullSha)'
+      gcrImageName: $(imageName)
