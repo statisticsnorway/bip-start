@@ -36,10 +36,6 @@ variables:
     value: 'imagescan-$(Build.SourceBranchName)-$(fullSha)'
   - name: imageTagAfterVulnerabilityScan
     value: $(Build.SourceBranchName)-$(fullSha)
-  - name:  MAVEN_CACHE_FOLDER
-    value: $(Pipeline.Workspace)/.m2/repository
-  - name: MAVEN_OPTS
-    value: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
 
 resources:
   repositories:
