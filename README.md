@@ -20,7 +20,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-#### `yarn start`
+* `yarn up` (will upgrade all packages; must be done before running first time)
+* `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -59,6 +60,16 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### Build container
+
+Podman or docker:
+`docker build . -t bip-start:0.1.0`
+
+### Run container locally
+
+Podman or docker:
+`docker run -p 8180:8180 localhost/bip-start:0.1.0`
 
 ### Learn More
 
