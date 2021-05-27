@@ -13,14 +13,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  - group: Hemmeligheter
   - name: appName
     value: 'bip-start'
   - name: imageTag
     value: '$(Build.SourceBranchName)-$(Build.SourceVersion)'
   - name: teamname
     value: 'stratus'
-  - name: sonarQube
+  - name: sonarQubeServiceConnection
     value: 'bipSonarQube'
   - name: gcrServiceConnection
     value: 'gcrServiceConnection'
@@ -43,7 +42,7 @@ jobs:
           reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
 #      - task: SonarQubePrepare@4
 #        inputs:
-#          SonarQube: '$(sonarQube)'
+#          SonarQube: '$(sonarQubeServiceConnection)'
 #          scannerMode: 'CLI'
 #          configMode: 'manual'
 #          cliProjectKey: $(Build.DefinitionName)
@@ -90,5 +89,5 @@ jobs:
           docker tag eu.gcr.io/prod-bip/ssb/$(teamname)/$(appName):imagescan-$(imageTag) eu.gcr.io/prod-bip/ssb/$(teamname)/$(appName):$(imageTag)
           docker tag eu.gcr.io/prod-bip/ssb/$(teamname)/$(appName):imagescan-$(imageTag) eu.gcr.io/prod-bip/ssb/$(teamname)/$(appName):latest
           docker push -a eu.gcr.io/prod-bip/ssb/$(teamname)/$(appName)
-        displayName: 'Retag Image'
+        displayName: 'Retag image after vuln scan'
         condition: succeeded()
