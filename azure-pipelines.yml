@@ -38,9 +38,8 @@ jobs:
       - task: PublishCodeCoverageResults@1
         inputs:
           codeCoverageTool: 'Cobertura'
-          summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
-          reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
-          pathToSources: '$(System.DefaultWorkingDirectory)/src'
+          summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+#          reportDirectory: '$(System.DefaultWorkingDirectory)/coverage'
 #      - task: SonarQubePrepare@4
 #        inputs:
 #          SonarQube: '$(sonarQubeServiceConnection)'
