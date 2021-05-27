@@ -2260,7 +2260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.11.4":
+"@testing-library/jest-dom@npm:^5.12.0":
   version: 5.12.0
   resolution: "@testing-library/jest-dom@npm:5.12.0"
   dependencies:
@@ -2276,7 +2276,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^11.1.0":
+"@testing-library/react@npm:^11.2.7":
   version: 11.2.7
   resolution: "@testing-library/react@npm:11.2.7"
   dependencies:
@@ -2289,14 +2289,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^12.1.10":
-  version: 12.8.3
-  resolution: "@testing-library/user-event@npm:12.8.3"
+"@testing-library/user-event@npm:^13.1.9":
+  version: 13.1.9
+  resolution: "@testing-library/user-event@npm:13.1.9"
   dependencies:
     "@babel/runtime": ^7.12.5
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: de7ec0222bc30f5b967c03298563c9c1fe2dc94e3d1ad94607df90f660f68d9c9686c25f59be4f049ab3cccc80080d6056b32d6851666afe3fbc35d9c384fb20
+  checksum: c1430ef9eba6e5e5bb733c72700e0dc54993bbd6fd0481b3cb46b22f6b9c3a0b5306615b0cb718bab8f11b3fe0e5c911cd7253166646697410ed32fa527a7967
   languageName: node
   linkType: hard
 
@@ -3863,9 +3863,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bip-start@workspace:."
   dependencies:
-    "@testing-library/jest-dom": ^5.11.4
-    "@testing-library/react": ^11.1.0
-    "@testing-library/user-event": ^12.1.10
+    "@testing-library/jest-dom": ^5.12.0
+    "@testing-library/react": ^11.2.7
+    "@testing-library/user-event": ^13.1.9
     react: ^17.0.2
     react-dom: ^17.0.2
     react-scripts: 4.0.3
