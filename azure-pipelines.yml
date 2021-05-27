@@ -3,7 +3,7 @@ name: $(Build.SourceBranch)-$(date:yyyyMMdd)$(rev:.r)
 trigger:
   branches:
     include:
-      - main
+      - master
 
 resources:
   repositories:
@@ -32,4 +32,4 @@ jobs:
       # tagToTag is used in conjunction with masterBranch to fetch & tag correct image when "tagging for prod"
       tagToTag: '$(Build.SourceVersion)'
       # masterBranch is used in conjunction with tagToTag to fetch & tag correct image when "tagging for prod"
-      masterBranch: 'main'
+      masterBranch: 'master'
