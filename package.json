@@ -58,11 +58,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**",
-      "!src/index.js",
-      "!src/**/index.js",
-      "!src/configurations/**",
-      "!src/enums/**",
-      "!src/__tests__/test-data/**"
+      "!**/index.js"
     ],
     "coverageReporters": [
       "cobertura",
