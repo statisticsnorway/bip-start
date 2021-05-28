@@ -9,3 +9,4 @@ COPY /build /usr/share/nginx/html
 EXPOSE 8180
 
 CMD ["nginx", "-g", "daemon off;"]
+ 
