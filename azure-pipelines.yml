@@ -7,6 +7,7 @@ trigger:
   branches:
     include:
       - master
+      - STRATUS-731_separate_pipeline
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -24,9 +25,8 @@ variables:
     value: 'gcrServiceConnection'
 
 jobs:
-  - job: pullRequest
+  - job: pullRequestOrMaster
     displayName: 'Test, build, report test coverage, build & push Docker image, scan for vulns & retag image'
-    condition: eq(variables['Build.Reason'], 'PullRequest')
     steps:
       - script: |
           set -e
@@ -38,8 +38,25 @@ jobs:
         inputs:
           codeCoverageTool: 'Cobertura'
           summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
-      # There should be a code analysis tool step here, but for now SonarQube only works on master
-      # so there is a separate job to do the analysis based on master (i.e. not on PRs since they are on branches)
+
+      - task: SonarQubePrepare@4
+        # For now, SonarQube can only be used on 'master' branch and hence cannot be run on PRs. 
+        # Therefore, we run it on merge to master. (Yes, a bit too late, but better than nothing.)
+        # This condition combined with the "master branch" trigger for the pipeline, should ensure that
+        # this task only runs for the master branch
+        condition: ne(variables['Build.Reason'], 'PullRequest')
+        inputs:
+          SonarQube: '$(sonarQubeServiceConnection)'
+          scannerMode: 'CLI'
+          configMode: 'manual'
+          cliProjectKey: $(Build.DefinitionName)
+          cliProjectName: $(Build.Repository.Name)
+          cliSources: '.'
+      - task: SonarQubeAnalyze@4
+        condition: ne(variables['Build.Reason'], 'PullRequest')
+      - task: SonarQubePublish@4
+        condition: ne(variables['Build.Reason'], 'PullRequest')
+
       - task: Docker@2
         displayName: 'Docker Build'
         inputs:
@@ -81,21 +98,3 @@ jobs:
           docker push -a eu.gcr.io/prod-bip/ssb/$(teamname)/$(appName)
         displayName: 'Retag image after vuln scan'
         condition: succeeded()
-  # For now, SonarQube can only be used on 'master' branch and hence cannot be run on PRs. 
-  # Therefore, we run it on merge to master. (Yes, a bit too late, but better than nothing.)
-  - job: sonarQubeMaster
-    displayName: 'Use SonarQube for code analysis'
-    # This condition combined with the "master branch" trigger for the pipeline, should ensure that
-    # this job only runs for the master branch
-    condition: ne(variables['Build.Reason'], 'PullRequest')
-    steps:
-      - task: SonarQubePrepare@4
-        inputs:
-          SonarQube: '$(sonarQubeServiceConnection)'
-          scannerMode: 'CLI'
-          configMode: 'manual'
-          cliProjectKey: $(Build.DefinitionName)
-          cliProjectName: $(Build.Repository.Name)
-          cliSources: '.'
-      - task: SonarQubeAnalyze@4
-      - task: SonarQubePublish@4
