@@ -53,6 +53,8 @@ jobs:
           cliProjectKey: $(Build.DefinitionName)
           cliProjectName: $(Build.Repository.Name)
           cliSources: '.'
+          extraProperties: |
+            sonar.javascript.lcov.reportPaths=coverage/lcov.info
       - task: SonarQubeAnalyze@4
         displayName: 'SonarQube analyze (unless PR)'
         condition: ne(variables['Build.Reason'], 'PullRequest')
