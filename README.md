@@ -4,6 +4,10 @@ Frontend for bip-initializer; a generator for BIP config
 
 ## Functionality
 
+The purpose of this application is to help the developer to create a correct HelmRelease for an
+application that will run on BIP. This is very much a WIP and further functionality will be
+added.
+
 ## Run Locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -64,12 +68,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### Build container
 
 Podman or docker:
-`docker build . -t bip-start:0.1.0`
+`docker build . -t eu.gcr.io/prod-bip/ssb/stratus/bip-start:<version>`
 
 ### Run container locally
 
 Podman or docker:
-`docker run -p 8180:8180 localhost/bip-start:0.1.0`
+`docker run -p 8180:8180 eu.gcr.io/prod-bip/ssb/stratus/bip-start:<version>`
 
 ### Learn More
 
