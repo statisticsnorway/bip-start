@@ -4,6 +4,10 @@ Frontend for bip-initializer; a generator for BIP config
 
 ## Functionality
 
+The purpose of this application is to help the developer to create a correct HelmRelease for an
+application that will run on BIP. This is very much a WIP and further functionality will be
+added.
+
 ## Run Locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
