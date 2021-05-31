@@ -64,12 +64,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### Build container
 
 Podman or docker:
-`docker build . -t bip-start:0.1.0`
+`docker build . -t eu.gcr.io/prod-bip/ssb/stratus/bip-start:<version>`
 
 ### Run container locally
 
 Podman or docker:
-`docker run -p 8180:8180 localhost/bip-start:0.1.0`
+`docker run -p 8180:8180 eu.gcr.io/prod-bip/ssb/stratus/bip-start:<version>`
 
 ### Learn More
 
