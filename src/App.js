@@ -1,6 +1,8 @@
 import './App.css'
+import {HRForm} from './components'
 
 function App () {
+ 
   return (
     <div className='App'>
       <header className='App-header'>
@@ -12,7 +14,8 @@ function App () {
         <a className='App-link' href='https://github.com/statisticsnorway/platform-dev'>SSB platform-dev</a>
         <a className='App-link' href='https://statistics-norway.atlassian.net/browse/STRATUS'>STRATUS jira site</a>
       </header>
-    </div>
+      <HRForm/>
+     </div>
   )
 }
 

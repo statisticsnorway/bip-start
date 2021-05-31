@@ -1582,6 +1582,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime-corejs2@npm:^7.8.7":
+  version: 7.14.0
+  resolution: "@babel/runtime-corejs2@npm:7.14.0"
+  dependencies:
+    core-js: ^2.6.5
+    regenerator-runtime: ^0.13.4
+  checksum: 79942a5a4048a3fd81c36ca220c79c5bb0ee9ae5ec273cb1d1c0d5fa55ca65265c13f896a771fae334c86a431af469ca59a2c1d41430b9c47d9d6e91badb7c62
+  languageName: node
+  linkType: hard
+
 "@babel/runtime-corejs3@npm:^7.10.2":
   version: 7.14.0
   resolution: "@babel/runtime-corejs3@npm:7.14.0"
@@ -2045,6 +2055,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rjsf/core@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "@rjsf/core@npm:2.5.1"
+  dependencies:
+    "@babel/runtime-corejs2": ^7.8.7
+    "@types/json-schema": ^7.0.4
+    ajv: ^6.7.0
+    core-js: ^2.5.7
+    json-schema-merge-allof: ^0.6.0
+    jsonpointer: ^4.0.1
+    lodash: ^4.17.15
+    prop-types: ^15.7.2
+    react-app-polyfill: ^1.0.4
+    react-is: ^16.9.0
+    shortid: ^2.2.14
+  peerDependencies:
+    react: ">=16"
+  checksum: 48e5b7903c6c3fec2bf3318b13a462a43792ac0c6ad59a892d3321691d9c5405aedc0c2953d0f92e994ad4fecff0d52947ff4454260a0ca70ff79878021a818a
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-node-resolve@npm:^7.1.1":
   version: 7.1.3
   resolution: "@rollup/plugin-node-resolve@npm:7.1.3"
@@ -2447,7 +2478,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.3, @types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.6":
+"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.3, @types/json-schema@npm:^7.0.4, @types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.6":
   version: 7.0.7
   resolution: "@types/json-schema@npm:7.0.7"
   checksum: b9d2c509fa4e0b82f58e73f5e6ab76c60ff1884ba41bb82f37fb1cece226d4a3e5a62fedf78a43da0005373a6713d9abe61c1e592906402c41c08ad6ab26d52b
@@ -3079,7 +3110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:^6.1.0, ajv@npm:^6.10.0, ajv@npm:^6.10.2, ajv@npm:^6.12.3, ajv@npm:^6.12.4, ajv@npm:^6.12.5":
+"ajv@npm:^6.1.0, ajv@npm:^6.10.0, ajv@npm:^6.10.2, ajv@npm:^6.12.3, ajv@npm:^6.12.4, ajv@npm:^6.12.5, ajv@npm:^6.7.0":
   version: 6.12.6
   resolution: "ajv@npm:6.12.6"
   dependencies:
@@ -3863,6 +3894,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bip-start@workspace:."
   dependencies:
+    "@rjsf/core": ^2.5.1
     "@testing-library/jest-dom": ^5.12.0
     "@testing-library/react": ^11.2.7
     "@testing-library/user-event": ^13.1.9
@@ -4689,6 +4721,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"compute-gcd@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "compute-gcd@npm:1.2.1"
+  dependencies:
+    validate.io-array: ^1.0.3
+    validate.io-function: ^1.0.2
+    validate.io-integer-array: ^1.0.0
+  checksum: 75977cba3b76ee96e024463bfb0ab9439c59349e911528654f7f2c150cc8aa8b42c9cc8894928b0fcdf42b5500607a64ad2055f36eb2873495e49b84be706c02
+  languageName: node
+  linkType: hard
+
+"compute-lcm@npm:^1.1.0":
+  version: 1.1.2
+  resolution: "compute-lcm@npm:1.1.2"
+  dependencies:
+    compute-gcd: ^1.2.1
+    validate.io-array: ^1.0.3
+    validate.io-function: ^1.0.2
+    validate.io-integer-array: ^1.0.0
+  checksum: 02bc410f9e967faf6eb32a8dda79ed7147b5865fcbf7af312c31e8840ac299551f54a01e7d4062368428de0692af8e254bfae71ab16b2f8735c0d8eb9ca683a7
+  languageName: node
+  linkType: hard
+
 "concat-map@npm:0.0.1":
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
@@ -4844,10 +4899,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^2.4.0":
+"core-js@npm:^2.4.0, core-js@npm:^2.5.7, core-js@npm:^2.6.5":
   version: 2.6.12
   resolution: "core-js@npm:2.6.12"
   checksum: b865823ce9cb5bc63336856440f6525e4996bb91af30660081e82bf447d177f36104f0986906a34ea0c9c03cb8b3d960380848a478e2621dac30c9b8198d28da
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^3.5.0":
+  version: 3.13.1
+  resolution: "core-js@npm:3.13.1"
+  checksum: 9138463ed7e6489a0b7f7e8a13cb345fde22866ab23d35f0e0e0ddc13e0374dfc7542d7316762a7dc2a5074efe22f8ff692e26ccc22860d8179de5eedf922e98
   languageName: node
   linkType: hard
 
@@ -9267,6 +9329,26 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"json-schema-compare@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "json-schema-compare@npm:0.2.2"
+  dependencies:
+    lodash: ^4.17.4
+  checksum: d4efbe9b589e0755fcf85b51c8ef2a18bb702da73f1e27290f3524c6f6bb684b5285555604070696bbe620be32910f0f717ed392c6942e7cb1c1c28bdd9254ec
+  languageName: node
+  linkType: hard
+
+"json-schema-merge-allof@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "json-schema-merge-allof@npm:0.6.0"
+  dependencies:
+    compute-lcm: ^1.1.0
+    json-schema-compare: ^0.2.2
+    lodash: ^4.17.4
+  checksum: 51c86326b9d5b85ed153740e560cf7b00bff4a956a9ef2cff8367c367b4f4c5aecb77d2f51bc4b76046590da22f2bc7fca1bd41d63eecf022469e0549d688d2a
+  languageName: node
+  linkType: hard
+
 "json-schema-traverse@npm:^0.4.1":
   version: 0.4.1
   resolution: "json-schema-traverse@npm:0.4.1"
@@ -9353,6 +9435,13 @@ fsevents@^1.2.7:
     graceful-fs:
       optional: true
   checksum: 9419c886abc6f8a5088cbb222b7bc17c76e8ee9f6c0e5c38781a4e09488166084f25247bc0b58e025b08c43064c82ae860ad89a992e35fc8cfae639323b7edbc
+  languageName: node
+  linkType: hard
+
+"jsonpointer@npm:^4.0.1":
+  version: 4.1.0
+  resolution: "jsonpointer@npm:4.1.0"
+  checksum: 90724d8a84ce4493980f474c59298a8c39b379e8163c648408a53143baf7f3818189102c45d860905447da2ff79c9152bbda58d1339c5564b1bb8748e3adbb81
   languageName: node
   linkType: hard
 
@@ -9658,7 +9747,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash@npm:>=3.5 <5, lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.5, lodash@npm:^4.7.0":
+"lodash@npm:>=3.5 <5, lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.17.5, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 4983720b9abca930a4a46f18db163d7dad8dd00dbed6db0cc7b499b33b717cce69f80928b27bbb1ff2cbd3b19d251ee90669a8b5ea466072ca81c2ebe91e7468
@@ -10202,6 +10291,13 @@ fsevents@^1.2.7:
   dependencies:
     node-gyp: latest
   checksum: 36349b2e5df4182aa0d0cc43fcd6cc782ca560a83c2764743d80c14ba5028d0c54041a2f464b8d4cb18a884e04415034a0a764c745e1d5502ea34a5cb6470a39
+  languageName: node
+  linkType: hard
+
+"nanoid@npm:^2.1.0":
+  version: 2.1.11
+  resolution: "nanoid@npm:2.1.11"
+  checksum: 41453e344e3abb189cd3baa3ab52685601d7220f86ce73f6a1d9594ebae286c2acf47a20b5aa9cf11933b587b69c6007e88f190ca266450c2fbe20be6db43a29
   languageName: node
   linkType: hard
 
@@ -12134,7 +12230,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"promise@npm:^8.1.0":
+"promise@npm:^8.0.3, promise@npm:^8.1.0":
   version: 8.1.0
   resolution: "promise@npm:8.1.0"
   dependencies:
@@ -12377,6 +12473,20 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-app-polyfill@npm:^1.0.4":
+  version: 1.0.6
+  resolution: "react-app-polyfill@npm:1.0.6"
+  dependencies:
+    core-js: ^3.5.0
+    object-assign: ^4.1.1
+    promise: ^8.0.3
+    raf: ^3.4.1
+    regenerator-runtime: ^0.13.3
+    whatwg-fetch: ^3.0.0
+  checksum: 94d24bf1d69a0cbb26d8adbb14ba600b29c7c5adc06c9f9c8337d0f8ee7358ee2c443d806f8ca96fdf002d7f37c1a5fae6a796f63164df44a4fc3996aeb2d71f
+  languageName: node
+  linkType: hard
+
 "react-app-polyfill@npm:^2.0.0":
   version: 2.0.0
   resolution: "react-app-polyfill@npm:2.0.0"
@@ -12443,7 +12553,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.8.1":
+"react-is@npm:^16.8.1, react-is@npm:^16.9.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 11bcf1267a314a522615f626f3ce3727a3a24cdbf61c4d452add3550a7875326669631326cfb1ba3e92b6f72244c32ffecf93ad21c0cad8455d3e169d0e3f060
@@ -12705,7 +12815,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.7":
+"regenerator-runtime@npm:^0.13.3, regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.7":
   version: 0.13.8
   resolution: "regenerator-runtime@npm:0.13.8"
   checksum: 20178f5753f181d59691e5c3b4c59a2769987f75c7ccf325777673b5478acca61a553b10e895585086c222f72f5ee428090acf50320264de4b79f630f7388653
@@ -13566,6 +13676,15 @@ resolve@^2.0.0-next.3:
   version: 0.1.1
   resolution: "shellwords@npm:0.1.1"
   checksum: 3559ff550917ece921d252edf42eb54827540e9676e537137ace236df8f9b78e48c542ae0b3f8876fea0faf5826c97629d5b8cb9ac7dee287260e9804fb8132c
+  languageName: node
+  linkType: hard
+
+"shortid@npm:^2.2.14":
+  version: 2.2.16
+  resolution: "shortid@npm:2.2.16"
+  dependencies:
+    nanoid: ^2.1.0
+  checksum: 4944a69c6d5528311b45db12eb0f1eff64a326f91ff4c730704b00a2d096d1c6e319ff859ae6832afaa77df65ef86d4175c3b447713cc7d6253ffef7863f0f8f
   languageName: node
   linkType: hard
 
@@ -15136,6 +15255,46 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"validate.io-array@npm:^1.0.3":
+  version: 1.0.6
+  resolution: "validate.io-array@npm:1.0.6"
+  checksum: 5ab7b1e495b9d211976ec927b94c174b3999677d187733e6300baeb4a4174b803c376d6c32ef1db105f1dd5482b32ece674d249a9c151c78c7e7d4f8356d6808
+  languageName: node
+  linkType: hard
+
+"validate.io-function@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "validate.io-function@npm:1.0.2"
+  checksum: 0730bdbd158e9791f06444f9ee74df22685641175dfbb43b86a3db14551c9c1f43bcfde941cd80bfa47ae9f7e934bc47d9be96f02e732b5da3da16511ae2ace5
+  languageName: node
+  linkType: hard
+
+"validate.io-integer-array@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "validate.io-integer-array@npm:1.0.0"
+  dependencies:
+    validate.io-array: ^1.0.3
+    validate.io-integer: ^1.0.4
+  checksum: b2f153025b1ea22d70b77009ea3908152d4f3f12558551d1c8765ddb3f810eabd6e0e4c51ee99611c107b8ea21f8b10d32e599dd351043554f771b5649e82ce1
+  languageName: node
+  linkType: hard
+
+"validate.io-integer@npm:^1.0.4":
+  version: 1.0.5
+  resolution: "validate.io-integer@npm:1.0.5"
+  dependencies:
+    validate.io-number: ^1.0.3
+  checksum: 14d334b1e6195f742346f96dc3f05e0be01be92385628dc07b272b299df36720ecd4f16ca9ea7d3f6ca5184125d58e06b31cbb69b6aa17417b62fe48fd8dd365
+  languageName: node
+  linkType: hard
+
+"validate.io-number@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "validate.io-number@npm:1.0.3"
+  checksum: 818a00113e83bdfa3b5aaee8df4bd26ab124f08c065faf1a2d13af486694aedbdd1231f10c68f3aff2522a6239bcdad7583dfa7a0abeb6337171d0437be72abc
+  languageName: node
+  linkType: hard
+
 "vary@npm:~1.1.2":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
@@ -15413,7 +15572,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"whatwg-fetch@npm:^3.4.1":
+"whatwg-fetch@npm:^3.0.0, whatwg-fetch@npm:^3.4.1":
   version: 3.6.2
   resolution: "whatwg-fetch@npm:3.6.2"
   checksum: eaa370015f81fbf7fc69d5410a13c2200d3342fa783397e9a7e64215498276459993c05e826ed736d28a8abe4e7cc3f97e9b2ffadbc58129a55f443abdfea494
