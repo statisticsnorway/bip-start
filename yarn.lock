@@ -1582,7 +1582,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime-corejs2@npm:^7.8.7":
+"@babel/runtime-corejs2@npm:^7.8.7, @babel/runtime-corejs2@npm:^7.9.2":
   version: 7.14.0
   resolution: "@babel/runtime-corejs2@npm:7.14.0"
   dependencies:
@@ -1611,7 +1611,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.14.0
   resolution: "@babel/runtime@npm:7.14.0"
   dependencies:
@@ -1725,6 +1725,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fluentui/react-component-event-listener@npm:~0.51.6":
+  version: 0.51.7
+  resolution: "@fluentui/react-component-event-listener@npm:0.51.7"
+  dependencies:
+    "@babel/runtime": ^7.10.4
+  peerDependencies:
+    react: ^16.8.0 || ^17
+    react-dom: ^16.8.0 || ^17
+  checksum: 30dd837574216781db64094deb181400009c8d27dc87c513a513d11946816a3b33891ecc52a23e1e36bd92453f928a118523d29ac9b72e54afab5394ef638077
+  languageName: node
+  linkType: hard
+
+"@fluentui/react-component-ref@npm:~0.51.6":
+  version: 0.51.7
+  resolution: "@fluentui/react-component-ref@npm:0.51.7"
+  dependencies:
+    "@babel/runtime": ^7.10.4
+    react-is: ^16.6.3
+  peerDependencies:
+    react: ^16.8.0 || ^17
+    react-dom: ^16.8.0 || ^17
+  checksum: 9fcfb12cd3b1d1ef1327434ced347acfbeaa233e3f257a2f777ecff8cb644c350dfc41e3ba85f9f77b8d00d1b61d273bdf67ebce6cb284e087a686fdfb592c2f
+  languageName: node
+  linkType: hard
+
 "@hapi/address@npm:2.x.x":
   version: 2.1.4
   resolution: "@hapi/address@npm:2.1.4"
@@ -1764,6 +1789,19 @@ __metadata:
   dependencies:
     "@hapi/hoek": ^8.3.0
   checksum: 4550d3d7498a203ce5c0e53753eb9f510aa2b74c08bfaf7d7c4676a0943b27d72f22297ff006e8396eb74e6b73154ebf98feab19c199b0768a084a777d024a50
+  languageName: node
+  linkType: hard
+
+"@hypnosphi/create-react-context@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@hypnosphi/create-react-context@npm:0.3.1"
+  dependencies:
+    gud: ^1.0.0
+    warning: ^4.0.3
+  peerDependencies:
+    prop-types: ^15.0.0
+    react: ">=0.14.0"
+  checksum: 0f34b1f9a8158b49caf402b77af4525a747c8d0dd14409eca07ae5fef3c654a9010f3e0a086ce2dff7a07f52a9a5614ba7c6bd551c766909eeab56083a8a16a5
   languageName: node
   linkType: hard
 
@@ -2055,6 +2093,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@popperjs/core@npm:^2.6.0":
+  version: 2.9.2
+  resolution: "@popperjs/core@npm:2.9.2"
+  checksum: cc4de8b46fc190805619224f1c683bee6a162276430af3728d35087099ad83a80da3c11c4eac7cb2b5aa2fa59d4c7c689e211a3e955136588ed6dedb5bff32c5
+  languageName: node
+  linkType: hard
+
 "@rjsf/core@npm:^2.5.1":
   version: 2.5.1
   resolution: "@rjsf/core@npm:2.5.1"
@@ -2073,6 +2118,24 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 48e5b7903c6c3fec2bf3318b13a462a43792ac0c6ad59a892d3321691d9c5405aedc0c2953d0f92e994ad4fecff0d52947ff4454260a0ca70ff79878021a818a
+  languageName: node
+  linkType: hard
+
+"@rjsf/semantic-ui@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "@rjsf/semantic-ui@npm:2.5.1"
+  dependencies:
+    "@babel/runtime-corejs2": ^7.9.2
+    semantic-ui-css: ^2.4.1
+    semantic-ui-react: ^0.87.3
+  peerDependencies:
+    "@rjsf/core": ^2.0.0
+    lodash: ^4.17.15
+    react: ">=16"
+    semantic-ui-css: ^2.4.1
+    semantic-ui-react: ^0.87.3
+    shortid: ^2.2.14
+  checksum: 003e21a929f5339f2331c0bc58b2e14d8ec5c8fc25700e9242e1a5e32387c6dbcb3c31fa3142d9b9fe0c55bcadf92ecd4138fab632ab790060b490a325a1c30a
   languageName: node
   linkType: hard
 
@@ -2113,6 +2176,19 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0||^2.0.0
   checksum: 45da6411e045d1b034242a8144f4a5e8c02ff1b68a2e0857807f5bb4b091c416f2015e075057f0f0dec200e7b35efe6ed4e301b43e365cedea09192f01a6839b
+  languageName: node
+  linkType: hard
+
+"@semantic-ui-react/event-stack@npm:^3.1.0, @semantic-ui-react/event-stack@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@semantic-ui-react/event-stack@npm:3.1.2"
+  dependencies:
+    exenv: ^1.2.2
+    prop-types: ^15.6.2
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0
+    react-dom: ^16.0.0 || ^17.0.0
+  checksum: 78096b212b0db0164254736d831caaafa085dc22e605f69d7f6b11bab3437ab8f5f88896adc95c4e9d302e8424960a64080e1ddf57e2ada15a807bc46b683b5a
   languageName: node
   linkType: hard
 
@@ -3895,12 +3971,15 @@ __metadata:
   resolution: "bip-start@workspace:."
   dependencies:
     "@rjsf/core": ^2.5.1
+    "@rjsf/semantic-ui": ^2.5.1
     "@testing-library/jest-dom": ^5.12.0
     "@testing-library/react": ^11.2.7
     "@testing-library/user-event": ^13.1.9
     react: ^17.0.2
     react-dom: ^17.0.2
     react-scripts: 4.0.3
+    semantic-ui-css: ^2.4.1
+    semantic-ui-react: ^2.0.3
     standard: ^16.0.3
     web-vitals: ^1.0.1
   languageName: unknown
@@ -4505,6 +4584,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"classnames@npm:^2.2.6":
+  version: 2.3.1
+  resolution: "classnames@npm:2.3.1"
+  checksum: 57d536edede609f81425d24b062d8d720a466565faf1e38d32c881e883920baa71519ac70c7b565e9cd39201fb1c1ff9bdf8aabf8e26544bac481e7924867c83
+  languageName: node
+  linkType: hard
+
 "clean-css@npm:^4.2.3":
   version: 4.2.3
   resolution: "clean-css@npm:4.2.3"
@@ -4540,6 +4626,13 @@ __metadata:
     strip-ansi: ^6.0.0
     wrap-ansi: ^6.2.0
   checksum: e59d0642946dd300b1b002e69f43b32d55e682c84f6f2073705ffe77477b400aeabd4f4795467db0771a21d35ee070071f6a31925e4f83b52a7fe1f5c8e6e860
+  languageName: node
+  linkType: hard
+
+"clsx@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "clsx@npm:1.1.1"
+  checksum: d8ae10ac0546da19fe8c9516886f6582a64a382cf4d09ea7d36d5287cafbdab1192ab249adc2cdf0310e0b0aeac4f4142cf7c738c98d9cb68c19ba24b6f673d5
   languageName: node
   linkType: hard
 
@@ -5440,7 +5533,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deep-equal@npm:^1.0.1":
+"deep-equal@npm:^1.0.1, deep-equal@npm:^1.1.1":
   version: 1.1.1
   resolution: "deep-equal@npm:1.1.1"
   dependencies:
@@ -6678,6 +6771,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"exenv@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "exenv@npm:1.2.2"
+  checksum: 09fd080c0478739f0154916b73dea07f30f97972e1b3be3368d2b96d282d889b509f05e163d830e323c9ab1e94b0a293a9947b410651325df467c404f37f32f1
+  languageName: node
+  linkType: hard
+
 "exit@npm:^0.1.2":
   version: 0.1.2
   resolution: "exit@npm:0.1.2"
@@ -7491,6 +7591,13 @@ fsevents@^1.2.7:
   version: 1.3.0
   resolution: "growly@npm:1.3.0"
   checksum: c87f7e8c785cac6ee60719c9d62f7d790a85dafa13d62c4667664e3a21ee771f5fd19df3f374d2f7bdf297b8f687cf70e19bb066aba4832e6f6caa5190812578
+  languageName: node
+  linkType: hard
+
+"gud@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "gud@npm:1.0.0"
+  checksum: 08be6bf30eb713b0e115a4676418b3805b739703956fd861710f59ce355c047102954e4d79172b180912d06794e8d94f702e9367ac6843c2fae40c8c726a4907
   languageName: node
   linkType: hard
 
@@ -9232,6 +9339,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"jquery@npm:x.*":
+  version: 3.6.0
+  resolution: "jquery@npm:3.6.0"
+  checksum: a0a819022a1bdff5efa79bbd9d4d7352de5bd32dabe42108e6ec0797238dba36c09c108e0eea2724f5d03acc1b30ee87d76bec80e15b9510106532292ebe6ba4
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -9467,6 +9581,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"keyboard-key@npm:^1.0.4, keyboard-key@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "keyboard-key@npm:1.1.0"
+  checksum: 4b9ba48b995874334086531c6d264bcc899aa5fbe5cf41109f38fdfdd27466bbb951790d42fbcddb016cc671f6081eacda9570cd1513de185bcea6ed23669c83
+  languageName: node
+  linkType: hard
+
 "killable@npm:^1.0.1":
   version: 1.0.1
   resolution: "killable@npm:1.0.1"
@@ -9686,6 +9807,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"lodash-es@npm:^4.17.15":
+  version: 4.17.21
+  resolution: "lodash-es@npm:4.17.21"
+  checksum: ff0e7bb9595594d8b9c32fbe15912eaeefd83266f6e6872fbc498533cf8c2f039d12d37034b33965f1c04ef66ec1d6da83377c77e84e14c51a137901bb50865e
+  languageName: node
+  linkType: hard
+
 "lodash._reinterpolate@npm:^3.0.0":
   version: 3.0.0
   resolution: "lodash._reinterpolate@npm:3.0.0"
@@ -9761,7 +9889,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -11303,6 +11431,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"popper.js@npm:^1.14.4":
+  version: 1.16.1
+  resolution: "popper.js@npm:1.16.1"
+  checksum: eb53806fb7680e31c7d1db096f95438a40a7cb869f7ee0e27100c0860f11583a0d322606c6073618e7fe8865f834ec36482901b547256d9a0cf2b22434bca75d
+  languageName: node
+  linkType: hard
+
 "portfinder@npm:^1.0.26":
   version: 1.0.28
   resolution: "portfinder@npm:1.0.28"
@@ -12259,7 +12394,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2":
+"prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -12553,17 +12688,54 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.8.1, react-is@npm:^16.9.0":
+"react-fast-compare@npm:^3.0.1":
+  version: 3.2.0
+  resolution: "react-fast-compare@npm:3.2.0"
+  checksum: 6fe65c889eb4f326e97769135f97b3d63ac68737866f9c37f9625c9de4f5eaa9abed6f748eb3fd6a66808392118842916309cab7cfa99c67991f0c837433d6d2
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^16.6.3, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.9.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 11bcf1267a314a522615f626f3ce3727a3a24cdbf61c4d452add3550a7875326669631326cfb1ba3e92b6f72244c32ffecf93ad21c0cad8455d3e169d0e3f060
   languageName: node
   linkType: hard
 
-"react-is@npm:^17.0.1":
+"react-is@npm:^16.8.6 || ^17.0.0, react-is@npm:^17.0.1":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 3eff23f410d40ab9bc5177f147a92c7f42c356a21ecea340e0554566956d67e5e1ba56f26cc7fa22339ac3c7151744177bd6305eaa26d3cbf15f354358c9d9b6
+  languageName: node
+  linkType: hard
+
+"react-popper@npm:^1.3.3":
+  version: 1.3.11
+  resolution: "react-popper@npm:1.3.11"
+  dependencies:
+    "@babel/runtime": ^7.1.2
+    "@hypnosphi/create-react-context": ^0.3.1
+    deep-equal: ^1.1.1
+    popper.js: ^1.14.4
+    prop-types: ^15.6.1
+    typed-styles: ^0.0.7
+    warning: ^4.0.2
+  peerDependencies:
+    react: 0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: bacaf0f75c71ef4de6d270d32f071e7890795a74def2dae9995bb1bbba5d2bf31945123f6e3d9abfa46929d720e34d37252b694d1a962a2c3472011eeabbddca
+  languageName: node
+  linkType: hard
+
+"react-popper@npm:^2.2.4":
+  version: 2.2.5
+  resolution: "react-popper@npm:2.2.5"
+  dependencies:
+    react-fast-compare: ^3.0.1
+    warning: ^4.0.2
+  peerDependencies:
+    "@popperjs/core": ^2.0.0
+    react: ^16.8.0 || ^17
+  checksum: 5cac009001e2a7c640ba931afedbbf33c94a672a3f7c6ef672e55561b72778c6941a09f57156962114b9e47793779728088845fc306c43477ddc645cdb8793ea
   languageName: node
   linkType: hard
 
@@ -13468,6 +13640,59 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"semantic-ui-css@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "semantic-ui-css@npm:2.4.1"
+  dependencies:
+    jquery: x.*
+  checksum: 51eb2d50e7241d4ec8fb14a16ba3e19a9636b544d9698be5ad2f4dbbc7c9e64e67fd20b1f8b8ac1973e5b6921ddc373bced535984b1a5fc6402309dfddc57d00
+  languageName: node
+  linkType: hard
+
+"semantic-ui-react@npm:^0.87.3":
+  version: 0.87.3
+  resolution: "semantic-ui-react@npm:0.87.3"
+  dependencies:
+    "@babel/runtime": ^7.1.2
+    "@semantic-ui-react/event-stack": ^3.1.0
+    classnames: ^2.2.6
+    keyboard-key: ^1.0.4
+    lodash: ^4.17.11
+    prop-types: ^15.6.2
+    react-is: ^16.7.0
+    react-popper: ^1.3.3
+    shallowequal: ^1.1.0
+  peerDependencies:
+    react: ^16.3.0
+    react-dom: ^16.3.0
+  checksum: 0f5cf031d2408dd63a2c5943d47df668bceaf15e2f9d5000a005dc47c3ff199830f0909af563abd63c682efd9db0620811276ba726487e93514c042a4f535a93
+  languageName: node
+  linkType: hard
+
+"semantic-ui-react@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "semantic-ui-react@npm:2.0.3"
+  dependencies:
+    "@babel/runtime": ^7.10.5
+    "@fluentui/react-component-event-listener": ~0.51.6
+    "@fluentui/react-component-ref": ~0.51.6
+    "@popperjs/core": ^2.6.0
+    "@semantic-ui-react/event-stack": ^3.1.2
+    clsx: ^1.1.1
+    keyboard-key: ^1.1.0
+    lodash: ^4.17.19
+    lodash-es: ^4.17.15
+    prop-types: ^15.7.2
+    react-is: ^16.8.6 || ^17.0.0
+    react-popper: ^2.2.4
+    shallowequal: ^1.1.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 2c14e9107f93a247e6d00dda2995d2090de41b3c8c0d4b839051ad44c3d96643e879196dceaa2e982cf259b60f56754cdc42d05b761dbf41fb244f8e5f936079
+  languageName: node
+  linkType: hard
+
 "semver@npm:2 || 3 || 4 || 5, semver@npm:^5.4.1, semver@npm:^5.5.0, semver@npm:^5.5.1, semver@npm:^5.6.0":
   version: 5.7.1
   resolution: "semver@npm:5.7.1"
@@ -13630,6 +13855,13 @@ resolve@^2.0.0-next.3:
   bin:
     sha.js: ./bin.js
   checksum: 7554240ab76e683f7115123eb4815aae16b5fc6f2cdff97009831ad5b17b107ffcef022526211f7306957bce7a67fa4d0ccad79a3040c5073414365595e90516
+  languageName: node
+  linkType: hard
+
+"shallowequal@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "shallowequal@npm:1.1.0"
+  checksum: 15820dd544ce15521565c366940a46dcbe0f093c1336f6259c7b3e2490ca10135645ee262778f555d3ccc38283207f2f0a41e9a0f26888b5d5159f2904c4ac68
   languageName: node
   linkType: hard
 
@@ -14931,6 +15163,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"typed-styles@npm:^0.0.7":
+  version: 0.0.7
+  resolution: "typed-styles@npm:0.0.7"
+  checksum: 4988d78dafc45bc0ad73393f767c7958aabe121a9310d5c864ad6e064fd8bc049ac9a16ca2b411640e94cc95f8af3a67c78771f5eab5c211fcb60ecb71fdd2b9
+  languageName: node
+  linkType: hard
+
 "typedarray-to-buffer@npm:^3.1.5":
   version: 3.1.5
   resolution: "typedarray-to-buffer@npm:3.1.5"
@@ -15351,6 +15590,15 @@ resolve@^2.0.0-next.3:
   dependencies:
     makeerror: 1.0.x
   checksum: c014f264c473fc4464ba8f59eb9f7ffa1c0cf2c83b65353de28a6012d8dd29e974bf2b0fbd5c71231f56762a3ea0d970b635f7d6f6d670ff83f426741ce6a4da
+  languageName: node
+  linkType: hard
+
+"warning@npm:^4.0.2, warning@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "warning@npm:4.0.3"
+  dependencies:
+    loose-envify: ^1.0.0
+  checksum: 20ef5d29ff9c20af3060e504914a00d5a90ce346e75e6691efbedb540481cdc82070c966d75195f812de64bb0bd7f1b02315fcb52469db151c0f15e29002781c
   languageName: node
   linkType: hard
 
