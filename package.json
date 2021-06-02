@@ -10,6 +10,8 @@
   "dependencies": {
     "@rjsf/core": "^2.5.1",
     "@rjsf/semantic-ui": "^2.5.1",
+    "axios": "^0.21.1",
+    "axios-hooks": "^2.6.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -62,7 +64,8 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**",
-      "!**/index.js"
+      "!**/index.js",
+      "!**/reportWebVitals.js"
     ],
     "coverageReporters": [
       "cobertura",
