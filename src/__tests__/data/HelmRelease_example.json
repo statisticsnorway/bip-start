@@ -1,0 +1,68 @@
+{
+    "apiVersion": "helm.fluxcd.io/v1",
+    "kind": "HelmRelease",
+    "metadata": {
+        "name": "test-app",
+        "namespace": "stratus",
+        "annotations": {
+            "fluxcd.io/ignore": "false",
+            "fluxcd.io/automated": "true",
+            "fluxcd.io/tag.chart-image": "glob:main-*",
+            "fluxcd.io/locked": "false"
+        }
+        },
+        "spec": {
+        "chart": {
+            "git": "ssh://git@github.com/statisticsnorway/platform-dev",
+            "ref": "master",
+            "path": "helm/charts/ssb-chart"
+        },
+        "releaseName": "test-app",
+        "helmVersion": "v3",
+        "values": {
+            "name": "test-app",
+            "appType": "backend",
+            "cluster": "staging-bip-app",
+            "exposed": "false",
+            "istioEndUserAuth" : {
+            "enabled" : "true"
+            },
+            "billingProject": "ssb-stratus",
+            "image": {
+            "repository": "https://eu.gcr.io/ssb/stratus/test-app",
+            "tag": "main-8DFB94297F11440EB9B"
+            },
+            "port": {
+            "name": "http-test-app",
+            "containerport": 8080
+            }
+            ,
+            "probes": {
+            "liveness": {
+                "enabled": "True",
+                "livenessProbe": {
+                "httpGet": {
+                    "port": 8080,
+                    "path": "/health/alive"
+                }
+                }
+            },
+            "readiness": {
+                "enabled": "True",
+                "readinessProbe": {
+                "httpGet": {
+                    "port": 8080,
+                    "path": "/health/ready"
+                }
+                }
+            }
+        }
+        ,
+        "metrics": {
+            "enabled": "True",
+            "path": "/metrics",
+            "port": 8080
+        }
+        }
+    }
+}
