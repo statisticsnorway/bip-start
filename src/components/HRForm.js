@@ -64,7 +64,7 @@ function HRForm () {
         flux_image_tag_pattern: 'glob:main-*',
         cluster: 'staging-bip-app',
         billingproject: 'ssb-stratus',
-        // image_repository: 'eu.gcr.io/prod-bip/ssb/stratus/myapp',
+        image_repository: 'eu.gcr.io/prod-bip/ssb/stratus/myapp',
         image_tag: 'master-imagescan-f5130c78fbcc54fc038d7e0e28cde35da8e791f6',
         port: 8080,
         apptype: 'backend',

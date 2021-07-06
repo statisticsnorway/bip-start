@@ -1,8 +1,6 @@
-import React from 'react'
-
 function ResponseView ({ data }) {
   return (
-    <p>
+    <p name='response'>
       {JSON.stringify(data)}
     </p>
   )
