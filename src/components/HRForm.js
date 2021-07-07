@@ -1,9 +1,8 @@
 import Form from '@rjsf/core'
+// TODO: Use semantic-ui again
 // import Form from '@rjsf/semantic-ui'
-// import useAxios from 'axios-hooks'
-import axios from 'axios'
+import useAxios from 'axios-hooks'
 import ResponseView from './ResponseView'
-import { useState } from 'react'
 
 const { REACT_APP_BACKEND_URL } = process.env
 
@@ -52,35 +51,25 @@ function HRForm () {
     }
   }
 
-  const [result, setResult] = useState()
-
-  function onSubmit () {
-    axios({
-      method: 'post',
-      url: REACT_APP_BACKEND_URL,
-      data: {
-        name: 'myapp',
-        namespace: 'stratus',
-        flux_image_tag_pattern: 'glob:main-*',
-        cluster: 'staging-bip-app',
-        billingproject: 'ssb-stratus',
-        image_repository: 'eu.gcr.io/prod-bip/ssb/stratus/myapp',
-        image_tag: 'master-imagescan-f5130c78fbcc54fc038d7e0e28cde35da8e791f6',
-        port: 8080,
-        apptype: 'backend',
-        exposed: false,
-        authentication: true,
-        health_probes: true,
-        metrics: true
-      }
-    }).then((response) => {
-      console.log(response)
-      setResult(response.data)
-    }, (error) => {
-      console.log(error)
-      setResult(error.message)
-    })
-  }
+  const [{ data, loading, error }, onSubmit] = useAxios({
+    method: 'post',
+    url: REACT_APP_BACKEND_URL,
+    data: {
+      name: 'myapp',
+      namespace: 'stratus',
+      flux_image_tag_pattern: 'glob:main-*',
+      cluster: 'staging-bip-app',
+      billingproject: 'ssb-stratus',
+      image_repository: 'eu.gcr.io/prod-bip/ssb/stratus/myapp',
+      image_tag: 'master-imagescan-f5130c78fbcc54fc038d7e0e28cde35da8e791f6',
+      port: 8080,
+      apptype: 'backend',
+      exposed: false,
+      authentication: true,
+      health_probes: true,
+      metrics: true
+    }
+  }, { manual: true, useCache: false })
 
   return (
     <div>
@@ -90,7 +79,8 @@ function HRForm () {
         onSubmit={onSubmit}
         onError={onError}
       />
-      <ResponseView data={result} />
+      {data && !loading && !error && <ResponseView data={data} />}
+      {error && <ResponseView data={error.message} />}
     </div>
   )
 }
