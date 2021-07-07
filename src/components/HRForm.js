@@ -54,15 +54,17 @@ function HRForm () {
 
   const [inputData, setInputData] = useState('noe random: "Tull"')
 
-  const [{ data, loading, error }, callGenerator] = (inputParam) => {
-    console.log('Hei', inputParam)
-  }
+  const [{ data, loading, error }, callGenerator] = useAxios({
+    method: 'post',
+    url: REACT_APP_BACKEND_URL,
+    data: inputData
+  }, { manual: true, useCache: false })
 
   const onSubmit = ({ formData }, e) => {
     console.log('##### Data submitted: ', formData)
     // setInputData(formData)
     console.log('Data in state: ', inputData)
-    callGenerator(formData)
+    callGenerator()
   }
 
   return (
