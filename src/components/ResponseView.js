@@ -1,8 +1,11 @@
 function ResponseView ({ data }) {
   return (
-    <p name='response'>
-      {JSON.stringify(data)}
-    </p>
+    <div>
+      <h1>Resultat</h1>
+      <p name='response'>
+        {JSON.stringify(data)}
+      </p>
+    </div>
   )
 }
 
