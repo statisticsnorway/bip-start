@@ -6,7 +6,7 @@ import ResponseView from './ResponseView'
 import { validationSchema } from './validationschema'
 
 const HRForm = () => {
-  const [{ data, loading, isLoading, error }, callGenerator] = useAxios({
+  const [{ data, loading, error }, callGenerator] = useAxios({
     method: 'post',
     url: process.env.REACT_APP_BACKEND_URL,
     timeout: 2500
@@ -50,7 +50,7 @@ const HRForm = () => {
                     name='name'
                     label='Name'
                     placeholder={`${values.name}`}
-                    value={touched.name ? values.name : null}
+                    value={touched.name ? values.name : ''}
                     onChange={handleChange}
                     error={errors.name && touched.name
                       ? (<p class='error'>{errors.name}</p>)
@@ -65,7 +65,7 @@ const HRForm = () => {
                     name='namespace'
                     label='Namespace'
                     placeholder={`${values.namespace}`}
-                    value={touched.namespace ? values.namespace : null}
+                    value={touched.namespace ? values.namespace : ''}
                     onChange={handleChange}
                     error={errors.namespace && touched.namespace
                       ? (<p class='error'>{errors.namespace}</p>)
@@ -80,7 +80,7 @@ const HRForm = () => {
                     name='billingproject'
                     label='Billing project'
                     placeholder={`${values.billingproject}`}
-                    value={touched.billingproject ? values.billingproject : null}
+                    value={touched.billingproject ? values.billingproject : ''}
                     onChange={handleChange}
                     error={errors.billingproject && touched.billingproject
                       ? (<p class='error'>{errors.billingproject}</p>)
@@ -92,18 +92,18 @@ const HRForm = () => {
                     <Label attached='top left'>Application Type</Label>
                     <div>
                       <Field type='radio' name='appType' value='frontend' />
-                      <label class='ui label'>Frontend</label>
+                      <label>Frontend</label>
                       <Field type='radio' name='appType' value='backend' />
-                      <label class='ui label'>Backend</label>
+                      <label>Backend</label>
                     </div>
                   </Segment>
                   <Segment>
                     <Label attached='top left'>Cluster environment</Label>
                     <div>
                       <Field type='radio' name='cluster' value='prod-bip-app' />
-                      <label class='ui label'>Production</label>
+                      <label>Production</label>
                       <Field type='radio' name='cluster' value='staging-bip-ap' />
-                      <label class='ui label'>Staging</label>
+                      <label>Staging</label>
                     </div>
                   </Segment>
                 </SegmentGroup>
@@ -118,7 +118,7 @@ const HRForm = () => {
                     label='Container repository'
                     type='text'
                     placeholder={`${values.image_repository}${values.releaseName}`}
-                    value={touched.image_repository ? values.image_repository : null}
+                    value={touched.image_repository ? values.image_repository : ''}
                     onChange={handleChange}
                     error={errors.image_repository && touched.image_repository
                       ? (<p class='error'>{errors.image_repository}</p>)
@@ -133,7 +133,7 @@ const HRForm = () => {
                     name='flux_image_tag_pattern'
                     label='Tag pattern'
                     placeholder={`${values.flux_image_tag_pattern}`}
-                    value={touched.flux_image_tag_pattern ? values.flux_image_tag_pattern : null}
+                    value={touched.flux_image_tag_pattern ? values.flux_image_tag_pattern : ''}
                     onChange={handleChange}
                     error={errors.flux_image_tag_pattern && touched.flux_image_tag_pattern
                       ? (<p class='error'>{errors.flux_image_tag_pattern}</p>)
@@ -149,7 +149,7 @@ const HRForm = () => {
                     type='text'
                     label='Image tag'
                     placeholder={`${values.image_tag}`}
-                    value={touched.image_tag ? values.image_tag : null}
+                    value={touched.image_tag ? values.image_tag : ''}
                     onChange={handleChange}
                     error={errors.image_tag && touched.image_tag
                       ? (<p class='error'>{errors.image_tag}</p>)
