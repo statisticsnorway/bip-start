@@ -1,73 +1,193 @@
-// import Form from '@rjsf/core'
-import Form from '@rjsf/semantic-ui'
+import React from 'react'
+import { Button, Label, Grid, Segment, Input, SegmentGroup } from 'semantic-ui-react'
+import { Field, Form, Formik, ErrorMessage } from 'formik'
 import useAxios from 'axios-hooks'
+import ResponseView from './ResponseView'
+import { validationSchema } from './validationschema'
 
-function HRForm () {
-  const schema = '{\n  "title": "HRValues",\n  "type": "object",\n  "properties": {\n    "name": {\n      "title": "Name",\n      "minLength": 1,\n      "maxLength": 63,\n      "pattern": "^[A-Za-z]([-A-Za-z0-9]*[A-Za-z0-9])?$",\n      "type": "string"\n    },\n    "namespace": {\n      "title": "Namespace",\n      "minLength": 1,\n      "maxLength": 63,\n      "pattern": "^[A-Za-z]([-A-Za-z0-9]*[A-Za-z0-9])?$",\n      "type": "string"\n    },\n    "flux_image_tag_pattern": {\n      "title": "Flux Image Tag Pattern",\n      "default": "glob:main-*",\n      "minLength": 1,\n      "maxLength": 128,\n      "pattern": "^(glob|regex|semver):[a-zA-Z0-9][-a-zA-Z0-9._*]*",\n      "type": "string"\n    },\n    "cluster": {\n      "title": "Cluster",\n      "minLength": 1,\n      "maxLength": 63,\n      "pattern": "^[A-Za-z]([-A-Za-z0-9]*[A-Za-z0-9])?$",\n      "type": "string"\n    },\n    "billingproject": {\n      "title": "Billingproject",\n      "minLength": 1,\n      "maxLength": 63,\n      "pattern": "^[A-Za-z]([-A-Za-z0-9]*[A-Za-z0-9])?$",\n      "type": "string"\n    },\n    "image_repository": {\n      "title": "Image Repository",\n      "pattern": "(https?:\\\\/\\\\/)?(www\\\\.)?[a-zA-Z0-9]+([-a-zA-Z0-9.]{1,254}[A-Za-z0-9])?\\\\.[a-zA-Z0-9()]{1,6}([\\\\/][-a-zA-Z0-9_]+)*[\\\\/]?",\n      "type": "string"\n    },\n    "image_tag": {\n      "title": "Image Tag",\n      "minLength": 1,\n      "maxLength": 128,\n      "pattern": "[a-zA-Z0-9][-a-zA-Z0-9._*]*",\n      "type": "string"\n    },\n    "apptype": {\n      "title": "Apptype",\n      "default": "backend",\n      "pattern": "^(frontend|backend)$",\n      "type": "string"\n    },\n    "exposed": {\n      "title": "Exposed",\n      "default": false,\n      "type": "boolean"\n    },\n    "authentication": {\n      "title": "Authentication",\n      "default": true,\n      "type": "boolean"\n    },\n    "port": {\n      "title": "Port",\n      "default": 8080,\n      "minimum": 1024,\n      "maximum": 65535,\n      "type": "integer"\n    },\n    "health_probes": {\n      "title": "Health Probes",\n      "default": true,\n      "type": "boolean"\n    },\n    "metrics": {\n      "title": "Metrics",\n      "default": true,\n      "type": "boolean"\n    }\n  },\n  "required": [\n    "name",\n    "namespace",\n    "cluster",\n    "billingproject",\n    "image_repository",\n    "image_tag"\n  ],\n  "example": {\n    "name": "myapp",\n    "namespace": "stratus",\n    "flux_image_tag_pattern": "glob:main-*",\n    "cluster": "staging-bip-app",\n    "billingproject": "ssb-stratus",\n    "image_repository": "eu.gcr.io/prod-bip/ssb/stratus/myapp",\n    "image_tag": "master-imagescan-f5130c78fbcc54fc038d7e0e28cde35da8e791f6",\n    "port": 8080,\n    "apptype": "backend",\n    "exposed": false,\n    "authentication": true,\n    "health_probes": true,\n    "metrics": true\n  }\n}'
-
-  const uiSchema = {
-    name: {
-      'ui:help': 'The name of the application.'
-    },
-    namespace: {
-      'ui:help': 'The namespace where the application will be running. You should probably use the team name'
-    },
-    flux_image_tag_pattern: {
-      'ui:help': 'Pattern used to decide which container images to automatically deploy. (Based on image tag)'
-    },
-    cluster: {
-      'ui:help': 'The cluster where the application should run; staging-bip-app or prod-bip-app'
-    },
-    billingproject: {
-      'ui:help': 'Describes cost allocation. If unsure, ask your team manager/product owner'
-    },
-    image_repository: {
-      'ui:help': 'The container image repository containing the applicationcontainer image. (Where your pipeline pushes images to.) Usually https://eu.gcr.io/ssb/<team>/<app>'
-    },
-    image_tag: {
-      'ui:help': 'The first deployment of the application will use the container image with this tag'
-    },
-    apptype: {
-      'ui:help': 'What kind of application; frontend or backend. Frontend enables user authentication. Backend enables service-to-service authentication'
-    },
-    exposed: {
-      'ui:help': 'Whether it should be possible to access the application from public Internet'
-    },
-    authentication: {
-      'ui:help': 'If selected, service-to-service authentication is enabled and required. Relevant only for backends'
-    },
-    port: {
-      'ui:help': 'The TCP port exposed from the container. Use the same port as defined in your Dockerfile'
-    },
-    health_probes: {
-      'ui:help': 'Whether the application exposes health info (at endpoints /health/alive and /health/ready and the same port as the application port)'
-    },
-    metrics: {
-      'ui:help': 'Whether the application exposes metrics (at endpoint /metrics and the same port as the application port)'
-    }
-  }
-
-  const [{ data, loading, error }, onSubmit] = useAxios('urltobackend', { manual: true, useCache: false })
+const HRForm = () => {
+  const [{ data, loading, error }, callGenerator] = useAxios({
+    method: 'post',
+    url: process.env.REACT_APP_BACKEND_URL,
+    timeout: 2500
+  })
 
   return (
     <div>
-      <Form
-        schema={JSON.parse(schema)}
-        uiSchema={uiSchema}
-        onSubmit={onSubmit}
-        onError={onError}
-      />
-      <p>
-        {data && !loading && !error && JSON.stringify(data)}
-        {error && error.message}
-      </p>
+      <h1>Create HelmRelease</h1>
+      <Formik
+        initialValues={{
+          name: 'HelmReleasename',
+          namespace: 'Teamname',
+          billingproject: 'Sirius',
+          appType: 'frontend',
+          cluster: 'prod-bip-app',
+          image_repository: 'https://eu.gcr.io/prod-bip/ssb/',
+          flux_image_tag_pattern: 'glob:master-*',
+          image_tag: 'Initial image tag',
+          exposed: false,
+          health_probes: true,
+          authentication: true,
+          metrics: true
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(values, actions) => {
+          console.log('Data in state: ', values)
+          callGenerator(({ data: values }))
+          console.log('Response data: ', data)
+        }}
+      >
+
+        {({ handleChange, touched, errors, values }) => (
+          <Form>
+            <Grid columns={2}>
+              <Grid.Column>
+                <ErrorMessage name='name'>
+                  {value => <Label basic color='red' pointing='below'>{value}</Label>}
+                </ErrorMessage>
+                <Segment>
+                  <Input
+                    name='name'
+                    label='Name'
+                    placeholder={`${values.name}`}
+                    value={touched.name ? values.name : ''}
+                    onChange={handleChange}
+                    error={errors.name && touched.name
+                      ? (<p class='error'>{errors.name}</p>)
+                      : null}
+                  />
+                </Segment>
+                <ErrorMessage name='namespace'>
+                  {value => <Label basic color='red' pointing='below'>{value}</Label>}
+                </ErrorMessage>
+                <Segment>
+                  <Input
+                    name='namespace'
+                    label='Namespace'
+                    placeholder={`${values.namespace}`}
+                    value={touched.namespace ? values.namespace : ''}
+                    onChange={handleChange}
+                    error={errors.namespace && touched.namespace
+                      ? (<p class='error'>{errors.namespace}</p>)
+                      : null}
+                  />
+                </Segment>
+                <ErrorMessage name='billingproject'>
+                  {value => <Label basic color='red' pointing='below'>{value}</Label>}
+                </ErrorMessage>
+                <Segment>
+                  <Input
+                    name='billingproject'
+                    label='Billing project'
+                    placeholder={`${values.billingproject}`}
+                    value={touched.billingproject ? values.billingproject : ''}
+                    onChange={handleChange}
+                    error={errors.billingproject && touched.billingproject
+                      ? (<p class='error'>{errors.billingproject}</p>)
+                      : null}
+                  />
+                </Segment>
+                <SegmentGroup horizontal>
+                  <Segment>
+                    <Label attached='top left'>Application Type</Label>
+                    <div>
+                      <Field type='radio' name='appType' value='frontend' />
+                      <label>Frontend</label>
+                      <Field type='radio' name='appType' value='backend' />
+                      <label>Backend</label>
+                    </div>
+                  </Segment>
+                  <Segment>
+                    <Label attached='top left'>Cluster environment</Label>
+                    <div>
+                      <Field type='radio' name='cluster' value='prod-bip-app' />
+                      <label>Production</label>
+                      <Field type='radio' name='cluster' value='staging-bip-ap' />
+                      <label>Staging</label>
+                    </div>
+                  </Segment>
+                </SegmentGroup>
+              </Grid.Column>
+              <Grid.Column>
+                <ErrorMessage name='image_repository'>
+                  {value => <Label basic color='red' pointing='below'>{value}</Label>}
+                </ErrorMessage>
+                <Segment>
+                  <Input
+                    name='image_repository'
+                    label='Container repository'
+                    type='text'
+                    placeholder={`${values.image_repository}${values.releaseName}`}
+                    value={touched.image_repository ? values.image_repository : ''}
+                    onChange={handleChange}
+                    error={errors.image_repository && touched.image_repository
+                      ? (<p class='error'>{errors.image_repository}</p>)
+                      : null}
+                  />
+                </Segment>
+                <ErrorMessage name='flux_image_tag_pattern'>
+                  {value => <Label basic color='red' pointing='below'>{value}</Label>}
+                </ErrorMessage>
+                <Segment>
+                  <Input
+                    name='flux_image_tag_pattern'
+                    label='Tag pattern'
+                    placeholder={`${values.flux_image_tag_pattern}`}
+                    value={touched.flux_image_tag_pattern ? values.flux_image_tag_pattern : ''}
+                    onChange={handleChange}
+                    error={errors.flux_image_tag_pattern && touched.flux_image_tag_pattern
+                      ? (<p class='error'>{errors.flux_image_tag_pattern}</p>)
+                      : null}
+                  />
+                </Segment>
+                <ErrorMessage name='image_tag'>
+                  {value => <Label basic color='red' pointing='below'>{value}</Label>}
+                </ErrorMessage>
+                <Segment>
+                  <Input
+                    name='image_tag'
+                    type='text'
+                    label='Image tag'
+                    placeholder={`${values.image_tag}`}
+                    value={touched.image_tag ? values.image_tag : ''}
+                    onChange={handleChange}
+                    error={errors.image_tag && touched.image_tag
+                      ? (<p class='error'>{errors.image_tag}</p>)
+                      : null}
+                  />
+                </Segment>-
+                <SegmentGroup horizontal>
+                  <Segment>
+                    <Label attached='top left'>Exposed</Label>
+                    <Field type='checkbox' name='exposed' />
+                  </Segment>
+                  <Segment>
+                    <Label attached='top left'>Authenticated</Label>
+                    <Field type='checkbox' name='authentication' />
+                  </Segment>
+                  <Segment>
+                    <Label attached='top left'>Health probes</Label>
+                    <Field type='checkbox' name='health_probes' />
+                  </Segment>
+                  <Segment>
+                    <Label attached='top left'>Collect metrics</Label>
+                    <Field type='checkbox' name='metrics' />
+                  </Segment>
+                </SegmentGroup>
+              </Grid.Column>
+              <Grid.Column width={16}>
+                <Segment>
+                  <Button fluid positive type='submit'>Submit</Button>
+                </Segment>
+              </Grid.Column>
+            </Grid>
+          </Form>
+        )}
+      </Formik>
+      {data && !loading && !error && <ResponseView data={data} />}
+      {error && <ResponseView data={error.message} />}
     </div>
   )
-}
-
-function onError (errors) {
-  console.log('There are ', errors.length, ' errors to fix')
-  console.log(errors)
 }
 
 export default HRForm

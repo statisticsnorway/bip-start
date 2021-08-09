@@ -27,7 +27,7 @@ test('Renders error when backend call returns error', () => {
   useAxios.mockReturnValue([{ data: undefined, loading: false, error: errorObject }, onSubmit])
   const { getByText } = setup()
 
-  expect(getByText(errorMessage)).toBeInTheDocument()
+  expect(getByText(/ERROR ERROR/)).toBeInTheDocument()
 })
 
 test('Renders data when backend call is ok', () => {
