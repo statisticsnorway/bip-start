@@ -8,7 +8,7 @@ import { validationSchema } from './validationschema'
 const HRForm = () => {
   const [{ data, loading, error }, callGenerator] = useAxios({
     method: 'post',
-    url: process.env.REACT_APP_BACKEND_URL,
+    url: process.env.REACT_APP_BE_GENERATE,
     timeout: 2500
   })
 
