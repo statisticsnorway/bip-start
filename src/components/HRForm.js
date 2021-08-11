@@ -8,7 +8,7 @@ import { validationSchema } from './validationschema'
 const HRForm = () => {
   const [{ data, loading, error }, callGenerator] = useAxios({
     method: 'post',
-    url: process.env.REACT_APP_BE_GENERATE,
+    url: 'https://bip-start.staging-bip-app.ssb.no/be/bip-initializer/api/v1/generate',
     timeout: 2500
   })
 
@@ -32,9 +32,9 @@ const HRForm = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(values, actions) => {
-          console.log('Data in state: ', values)
+          console.log('Data in form: ', values)
           callGenerator(({ data: values }))
-          console.log('Response data: ', data)
+          console.log('Response data: ', {data})
         }}
       >
 
