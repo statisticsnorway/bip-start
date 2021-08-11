@@ -22,6 +22,9 @@ variables:
     value: 'bipSonarQube'
   - name: gcrServiceConnection
     value: 'gcrServiceConnection'
+  - name: REACT_APP_BE_GENERATE
+    value: 'https://bip-start.staging-bip-app.ssb.no/be/bip-initializer/api/v1/generate'
+
 
 jobs:
   - job: pullRequestOrMaster
