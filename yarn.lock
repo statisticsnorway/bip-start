@@ -1654,6 +1654,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@beam-australia/react-env@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@beam-australia/react-env@npm:3.1.1"
+  dependencies:
+    cross-spawn: ^6.0.5
+    dotenv: ^8.0.0
+    dotenv-expand: ^5.1.0
+    minimist: ^1.2.0
+  bin:
+    react-env: dist/cli.js
+  checksum: 91eebc1ec9372faed4ed69276ac2b90f0fe766c29e41cbc40eff2738312c6f19e4c7751114a934e70faf1fa64090e4e56d1b75a4eb8b5373116158d7a855032d
+  languageName: node
+  linkType: hard
+
 "@cnakazawa/watch@npm:^1.0.3":
   version: 1.0.4
   resolution: "@cnakazawa/watch@npm:1.0.4"
@@ -3938,6 +3952,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bip-start@workspace:."
   dependencies:
+    "@beam-australia/react-env": ^3.1.1
     "@testing-library/jest-dom": ^5.12.0
     "@testing-library/react": ^11.2.7
     "@testing-library/user-event": ^13.1.9
@@ -5039,7 +5054,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^6.0.0":
+"cross-spawn@npm:^6.0.0, cross-spawn@npm:^6.0.5":
   version: 6.0.5
   resolution: "cross-spawn@npm:6.0.5"
   dependencies:
@@ -5810,7 +5825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-expand@npm:5.1.0":
+"dotenv-expand@npm:5.1.0, dotenv-expand@npm:^5.1.0":
   version: 5.1.0
   resolution: "dotenv-expand@npm:5.1.0"
   checksum: b895c6220d345db8f58dca439d3bc65c2ee538659df570ed3fa8c99487df854afd6d1ddadf1e43a4091c9ed6166956e7db7bc5a05cf48fa812c0772e1f5cf860
@@ -5821,6 +5836,13 @@ __metadata:
   version: 8.2.0
   resolution: "dotenv@npm:8.2.0"
   checksum: 16cb89cbd7b98b053899b8aba8c5044c8fb61a2db8a81fe70360b75035fce5fed53bd7a34d772be717d0880c0321122a4c09423f518025e1b52d96791521b1a7
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^8.0.0":
+  version: 8.6.0
+  resolution: "dotenv@npm:8.6.0"
+  checksum: f4649999a157061dd169118f459d88db56380b2eef68e87fa9de7201796e5f6d94fa337658d7e148f404b48652a0eefe11222d9eba0cd464497911ae56cd6f93
   languageName: node
   linkType: hard
 
