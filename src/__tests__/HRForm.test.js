@@ -36,5 +36,6 @@ test('Renders data when backend call is ok', () => {
   useAxios.mockReturnValue([{ data: helmRelease, loading: false, error: undefined }, onSubmit])
   const { getByText } = setup()
 
-  expect(getByText(JSON.stringify(helmRelease))).toBeInTheDocument()
+  expect(getByText(/tag: main-8DFB94297F11440EB9B/)).toBeInTheDocument()
+  expect(getByText(/git: ssh:\/\/git@github.com\/statisticsnorway\/platform-dev/)).toBeInTheDocument()
 })
