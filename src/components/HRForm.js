@@ -1,20 +1,23 @@
 import React from 'react'
-import { Button, Label, Grid, Segment, Input, SegmentGroup } from 'semantic-ui-react'
+import { Button, Label, Grid, Segment, Input, SegmentGroup, Header, Popup, Icon } from 'semantic-ui-react'
 import { Field, Form, Formik, ErrorMessage } from 'formik'
 import useAxios from 'axios-hooks'
 import ResponseView from './ResponseView'
 import { validationSchema } from './validationschema'
+import { helptextHRForm } from './helptext'
 
 const HRForm = () => {
   const [{ data, loading, error }, callGenerator] = useAxios({
     method: 'post',
     url: window.__ENV.REACT_APP_BE_GENERATE,
     timeout: 2500
+  }, {
+    manual: true
   })
 
   return (
-    <div>
-      <h1>Create HelmRelease</h1>
+    <div id='hrform'>
+      <Header as='h2'>Create HelmRelease</Header>
       <Formik
         initialValues={{
           name: 'HelmReleasename',
@@ -40,17 +43,25 @@ const HRForm = () => {
 
         {({ handleChange, touched, errors, values }) => (
           <Form>
-            <Grid columns={2}>
+            <Grid stackable columns={2}>
               <Grid.Column>
                 <ErrorMessage name='name'>
                   {value => <Label basic color='red' pointing='below'>{value}</Label>}
                 </ErrorMessage>
                 <Segment>
+
                   <Input
                     name='name'
-                    label='Name'
+                    label={
+                      <Label>Name
+                        <Popup
+                          trigger={<Icon name='info' color='green' size='small' circular />}
+                          content={helptextHRForm.name}
+                          position='top left'
+                        />
+                      </Label>
+}
                     placeholder={`${values.name}`}
-                    value={touched.name ? values.name : ''}
                     onChange={handleChange}
                     error={errors.name && touched.name
                       ? (<p class='error'>{errors.name}</p>)
@@ -63,9 +74,16 @@ const HRForm = () => {
                 <Segment>
                   <Input
                     name='namespace'
-                    label='Namespace'
+                    label={
+                      <Label>Namespace
+                        <Popup
+                          trigger={<Icon name='info' color='green' size='small' circular />}
+                          content={helptextHRForm.namespace}
+                          position='top left'
+                        />
+                      </Label>
+}
                     placeholder={`${values.namespace}`}
-                    value={touched.namespace ? values.namespace : ''}
                     onChange={handleChange}
                     error={errors.namespace && touched.namespace
                       ? (<p class='error'>{errors.namespace}</p>)
@@ -80,7 +98,6 @@ const HRForm = () => {
                     name='billingproject'
                     label='Billing project'
                     placeholder={`${values.billingproject}`}
-                    value={touched.billingproject ? values.billingproject : ''}
                     onChange={handleChange}
                     error={errors.billingproject && touched.billingproject
                       ? (<p class='error'>{errors.billingproject}</p>)
@@ -89,22 +106,23 @@ const HRForm = () => {
                 </Segment>
                 <SegmentGroup horizontal>
                   <Segment>
-                    <Label attached='top left'>Application Type</Label>
-                    <div>
-                      <Field type='radio' name='appType' value='frontend' />
-                      <label>Frontend</label>
-                      <Field type='radio' name='appType' value='backend' />
-                      <label>Backend</label>
-                    </div>
+                    <Label attached='top'>Application Type<Popup
+                      trigger={<Icon name='info' color='green' size='small' circular />}
+                      content={helptextHRForm.apptype}
+                      position='top left'
+                                                          />
+                    </Label>
+                    <Field type='radio' name='appType' value='frontend' />
+                    <Label>Frontend</Label>
+                    <Field type='radio' name='appType' value='backend' />
+                    <Label>Backend</Label>
                   </Segment>
                   <Segment>
-                    <Label attached='top left'>Cluster environment</Label>
-                    <div>
-                      <Field type='radio' name='cluster' value='prod-bip-app' />
-                      <label>Production</label>
-                      <Field type='radio' name='cluster' value='staging-bip-ap' />
-                      <label>Staging</label>
-                    </div>
+                    <Label attached='top'>Cluster environment</Label>
+                    <Field type='radio' name='cluster' value='prod-bip-app' />
+                    <Label>Production</Label>
+                    <Field type='radio' name='cluster' value='staging-bip-ap' />
+                    <Label>Staging</Label>
                   </Segment>
                 </SegmentGroup>
               </Grid.Column>
@@ -118,7 +136,6 @@ const HRForm = () => {
                     label='Container repository'
                     type='text'
                     placeholder={`${values.image_repository}${values.releaseName}`}
-                    value={touched.image_repository ? values.image_repository : ''}
                     onChange={handleChange}
                     error={errors.image_repository && touched.image_repository
                       ? (<p class='error'>{errors.image_repository}</p>)
@@ -133,7 +150,6 @@ const HRForm = () => {
                     name='flux_image_tag_pattern'
                     label='Tag pattern'
                     placeholder={`${values.flux_image_tag_pattern}`}
-                    value={touched.flux_image_tag_pattern ? values.flux_image_tag_pattern : ''}
                     onChange={handleChange}
                     error={errors.flux_image_tag_pattern && touched.flux_image_tag_pattern
                       ? (<p class='error'>{errors.flux_image_tag_pattern}</p>)
@@ -149,36 +165,38 @@ const HRForm = () => {
                     type='text'
                     label='Image tag'
                     placeholder={`${values.image_tag}`}
-                    value={touched.image_tag ? values.image_tag : ''}
                     onChange={handleChange}
                     error={errors.image_tag && touched.image_tag
                       ? (<p class='error'>{errors.image_tag}</p>)
                       : null}
                   />
-                </Segment>-
+                </Segment>
                 <SegmentGroup horizontal>
-                  <Segment>
-                    <Label attached='top left'>Exposed</Label>
+                  <Segment textAlign='center'>
+                    <Label attached='top'>Exposed<Popup
+                      trigger={<Icon name='info' color='green' size='small' circular />}
+                      content={helptextHRForm.exposed}
+                      position='top left'
+                                                 />
+                    </Label>
                     <Field type='checkbox' name='exposed' />
                   </Segment>
-                  <Segment>
-                    <Label attached='top left'>Authenticated</Label>
+                  <Segment textAlign='center'>
+                    <Label attached='top'>Authenticated</Label>
                     <Field type='checkbox' name='authentication' />
                   </Segment>
-                  <Segment>
-                    <Label attached='top left'>Health probes</Label>
+                  <Segment textAlign='center'>
+                    <Label attached='top'>Health probes</Label>
                     <Field type='checkbox' name='health_probes' />
                   </Segment>
-                  <Segment>
-                    <Label attached='top left'>Collect metrics</Label>
+                  <Segment textAlign='center'>
+                    <Label attached='top'>Collect metrics</Label>
                     <Field type='checkbox' name='metrics' />
                   </Segment>
                 </SegmentGroup>
               </Grid.Column>
               <Grid.Column width={16}>
-                <Segment>
-                  <Button fluid positive type='submit'>Submit</Button>
-                </Segment>
+                <Button fluid positive type='submit'>Submit</Button>
               </Grid.Column>
             </Grid>
           </Form>
