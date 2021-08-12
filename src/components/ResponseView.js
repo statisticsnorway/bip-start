@@ -1,13 +1,14 @@
 import yaml from 'js-yaml'
+import {Header, Segment} from 'semantic-ui-react'
 
 function ResponseView ({ data }) {
   return (
-    <div>
-      <h2>Resultat</h2>
+    <Segment>
+      <Header as='h2'>Resultat</Header>
       <div name='response'>
         <pre>{yaml.dump(data, { indent: 2, sortKeys: true })}</pre>
       </div>
-    </div>
+    </Segment>
   )
 }
 

@@ -13,6 +13,10 @@
   color: white;
 }
 
+#hrform {
+  margin: 0.7em;
+}
+
 .App-link {
   color: #e5f0e6;
 }

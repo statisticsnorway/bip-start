@@ -6,7 +6,7 @@ function App () {
     <div className='App'>
       <header className='App-header'>
         <p>
-          Welcome to BIP-Start!
+          BIP Initializer
         </p>
 
       </header>
