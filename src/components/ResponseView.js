@@ -1,5 +1,5 @@
 import yaml from 'js-yaml'
-import {Header, Segment} from 'semantic-ui-react'
+import { Header, Segment } from 'semantic-ui-react'
 
 function ResponseView ({ data }) {
   return (

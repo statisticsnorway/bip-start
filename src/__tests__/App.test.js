@@ -3,6 +3,6 @@ import App from '../App'
 
 test('renders welcome text', () => {
   render(<App />)
-  const titleText = screen.getByText(/Welcome to BIP-Start/i)
+  const titleText = screen.getByText(/BIP Initializer/i)
   expect(titleText).toBeInTheDocument()
 })

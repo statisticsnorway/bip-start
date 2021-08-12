@@ -16,7 +16,7 @@ const HRForm = () => {
   })
 
   return (
-    <div id="hrform">
+    <div id='hrform'>
       <Header as='h2'>Create HelmRelease</Header>
       <Formik
         initialValues={{
@@ -49,16 +49,18 @@ const HRForm = () => {
                   {value => <Label basic color='red' pointing='below'>{value}</Label>}
                 </ErrorMessage>
                 <Segment>
-                  
+
                   <Input
                     name='name'
                     label={
-                    <Label>Name
-                      <Popup trigger={<Icon name='info' color='green' size='small' circular />}
-                      content={helptextHRForm.name}
-                      position='top left'
-                      />
-                    </Label>}
+                      <Label>Name
+                        <Popup
+                          trigger={<Icon name='info' color='green' size='small' circular />}
+                          content={helptextHRForm.name}
+                          position='top left'
+                        />
+                      </Label>
+}
                     placeholder={`${values.name}`}
                     onChange={handleChange}
                     error={errors.name && touched.name
@@ -74,11 +76,13 @@ const HRForm = () => {
                     name='namespace'
                     label={
                       <Label>Namespace
-                        <Popup trigger={<Icon name='info' color='green' size='small' circular />}
-                        content={helptextHRForm.namespace}
-                        position='top left'
+                        <Popup
+                          trigger={<Icon name='info' color='green' size='small' circular />}
+                          content={helptextHRForm.namespace}
+                          position='top left'
                         />
-                      </Label>}
+                      </Label>
+}
                     placeholder={`${values.namespace}`}
                     onChange={handleChange}
                     error={errors.namespace && touched.namespace
@@ -102,21 +106,23 @@ const HRForm = () => {
                 </Segment>
                 <SegmentGroup horizontal>
                   <Segment>
-                    <Label attached='top'>Application Type<Popup trigger={<Icon name='info' color='green' size='small' circular />}
+                    <Label attached='top'>Application Type<Popup
+                      trigger={<Icon name='info' color='green' size='small' circular />}
                       content={helptextHRForm.apptype}
                       position='top left'
-                      /></Label>
-                      <Field type='radio' name='appType' value='frontend' />
-                      <Label>Frontend</Label>
-                      <Field type='radio' name='appType' value='backend' />
-                      <Label>Backend</Label>
+                                                          />
+                    </Label>
+                    <Field type='radio' name='appType' value='frontend' />
+                    <Label>Frontend</Label>
+                    <Field type='radio' name='appType' value='backend' />
+                    <Label>Backend</Label>
                   </Segment>
                   <Segment>
                     <Label attached='top'>Cluster environment</Label>
-                      <Field type='radio' name='cluster' value='prod-bip-app' />
-                      <Label>Production</Label>
-                      <Field type='radio' name='cluster' value='staging-bip-ap' />
-                      <Label>Staging</Label>
+                    <Field type='radio' name='cluster' value='prod-bip-app' />
+                    <Label>Production</Label>
+                    <Field type='radio' name='cluster' value='staging-bip-ap' />
+                    <Label>Staging</Label>
                   </Segment>
                 </SegmentGroup>
               </Grid.Column>
@@ -167,10 +173,12 @@ const HRForm = () => {
                 </Segment>
                 <SegmentGroup horizontal>
                   <Segment textAlign='center'>
-                    <Label attached='top'>Exposed<Popup trigger={<Icon name='info' color='green' size='small' circular />}
+                    <Label attached='top'>Exposed<Popup
+                      trigger={<Icon name='info' color='green' size='small' circular />}
                       content={helptextHRForm.exposed}
                       position='top left'
-                      /></Label>
+                                                 />
+                    </Label>
                     <Field type='checkbox' name='exposed' />
                   </Segment>
                   <Segment textAlign='center'>
@@ -188,7 +196,7 @@ const HRForm = () => {
                 </SegmentGroup>
               </Grid.Column>
               <Grid.Column width={16}>
-                  <Button fluid positive type='submit'>Submit</Button>
+                <Button fluid positive type='submit'>Submit</Button>
               </Grid.Column>
             </Grid>
           </Form>
