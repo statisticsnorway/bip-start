@@ -59,8 +59,8 @@ const HRForm = () => {
                           content={helptextHRForm.name}
                           position='top left'
                         />
-                      </Label>
-}
+                      </Label>}
+                    style={{width: "100%"}}
                     placeholder={`${values.name}`}
                     onChange={handleChange}
                     error={errors.name && touched.name
@@ -81,8 +81,8 @@ const HRForm = () => {
                           content={helptextHRForm.namespace}
                           position='top left'
                         />
-                      </Label>
-}
+                      </Label>}
+                    style={{width: "100%"}}
                     placeholder={`${values.namespace}`}
                     onChange={handleChange}
                     error={errors.namespace && touched.namespace
@@ -97,6 +97,7 @@ const HRForm = () => {
                   <Input
                     name='billingproject'
                     label='Billing project'
+                    style={{width: "100%"}}
                     placeholder={`${values.billingproject}`}
                     onChange={handleChange}
                     error={errors.billingproject && touched.billingproject
@@ -109,8 +110,7 @@ const HRForm = () => {
                     <Label attached='top'>Application Type<Popup
                       trigger={<Icon name='info' color='green' size='small' circular />}
                       content={helptextHRForm.apptype}
-                      position='top left'
-                                                          />
+                      position='top left'/>
                     </Label>
                     <Field type='radio' name='appType' value='frontend' />
                     <Label>Frontend</Label>
@@ -135,6 +135,7 @@ const HRForm = () => {
                     name='image_repository'
                     label='Container repository'
                     type='text'
+                    style={{width: "100%"}}
                     placeholder={`${values.image_repository}${values.releaseName}`}
                     onChange={handleChange}
                     error={errors.image_repository && touched.image_repository
@@ -149,6 +150,7 @@ const HRForm = () => {
                   <Input
                     name='flux_image_tag_pattern'
                     label='Tag pattern'
+                    style={{width: "100%"}}
                     placeholder={`${values.flux_image_tag_pattern}`}
                     onChange={handleChange}
                     error={errors.flux_image_tag_pattern && touched.flux_image_tag_pattern
@@ -164,6 +166,7 @@ const HRForm = () => {
                     name='image_tag'
                     type='text'
                     label='Image tag'
+                    style={{width: "100%"}}
                     placeholder={`${values.image_tag}`}
                     onChange={handleChange}
                     error={errors.image_tag && touched.image_tag
@@ -176,8 +179,7 @@ const HRForm = () => {
                     <Label attached='top'>Exposed<Popup
                       trigger={<Icon name='info' color='green' size='small' circular />}
                       content={helptextHRForm.exposed}
-                      position='top left'
-                                                 />
+                      position='top left'/>
                     </Label>
                     <Field type='checkbox' name='exposed' />
                   </Segment>
