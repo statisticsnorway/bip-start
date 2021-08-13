@@ -25,6 +25,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 * `yarn up` (will upgrade all packages; must be done before running first time)
+* `yarn prestart`
 * `yarn start`
 
 Runs the app in the development mode.\
