@@ -6,8 +6,10 @@ function ResponseView ({ data, allOK }) {
     return (
       <Segment>
         <Header as='h2'>Generated HelmRelease</Header>
-        <p>Copy the following HelmRelease to a text file, eg. name.yaml<br />
-        This file should be checked in to the platform-dev git repository.</p>
+        <p>
+          Copy the following HelmRelease to a text file, eg. name.yaml<br />
+          This file should be checked in to the platform-dev git repository.
+        </p>
         <div name='response'>
           <pre>{yaml.dump(data, { indent: 2, sortKeys: true })}</pre>
         </div>

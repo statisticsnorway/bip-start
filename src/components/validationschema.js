@@ -25,9 +25,6 @@ export const validationSchema = Yup.object({
       .max(128, 'Max length: 128 characters')
       .required('Required field')
       .matches(qFluxImageTagFmt, 'Value must match RegEx: ' + qFluxImageTagFmt),
-  image_repository:
-    Yup.string()
-      .url('Value must be a well formed URL'),
   image_tag:
     Yup.string()
       .max(128, 'Max length: 128 characters')
