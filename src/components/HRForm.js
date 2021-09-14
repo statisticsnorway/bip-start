@@ -20,12 +20,12 @@ const HRForm = () => {
       <Header as='h2'>Create HelmRelease</Header>
       <Formik
         initialValues={{
-          name: 'HelmReleasename',
+          name: 'HelmReleaseName',
           namespace: 'Teamname',
           billingproject: 'Sirius',
           appType: 'frontend',
           cluster: 'prod-bip-app',
-          image_repository: 'https://eu.gcr.io/prod-bip/ssb/',
+          image_repository: 'eu.gcr.io/prod-bip/ssb/',
           flux_image_tag_pattern: 'glob:master-*',
           image_tag: 'Initial image tag',
           exposed: false,
@@ -59,8 +59,9 @@ const HRForm = () => {
                           content={helptextHRForm.name}
                           position='top left'
                         />
-                      </Label>}
-                    style={{width: "100%"}}
+                      </Label>
+                    }
+                    style={{ width: '100%' }}
                     placeholder={`${values.name}`}
                     onChange={handleChange}
                     error={errors.name && touched.name
@@ -81,8 +82,9 @@ const HRForm = () => {
                           content={helptextHRForm.namespace}
                           position='top left'
                         />
-                      </Label>}
-                    style={{width: "100%"}}
+                      </Label>
+                    }
+                    style={{ width: '100%' }}
                     placeholder={`${values.namespace}`}
                     onChange={handleChange}
                     error={errors.namespace && touched.namespace
@@ -96,8 +98,16 @@ const HRForm = () => {
                 <Segment>
                   <Input
                     name='billingproject'
-                    label='Billing project'
-                    style={{width: "100%"}}
+                    label={
+                      <Label>Billing project
+                        <Popup
+                          trigger={<Icon name='info' color='green' size='small' circular />}
+                          content={helptextHRForm.billingproject}
+                          position='top left'
+                        />
+                      </Label>
+                    }
+                    style={{ width: '100%' }}
                     placeholder={`${values.billingproject}`}
                     onChange={handleChange}
                     error={errors.billingproject && touched.billingproject
@@ -107,10 +117,12 @@ const HRForm = () => {
                 </Segment>
                 <SegmentGroup horizontal>
                   <Segment>
-                    <Label attached='top'>Application Type<Popup
-                      trigger={<Icon name='info' color='green' size='small' circular />}
-                      content={helptextHRForm.apptype}
-                      position='top left'/>
+                    <Label attached='top'>Application Type
+                      <Popup
+                        trigger={<Icon name='info' color='green' size='small' circular />}
+                        content={helptextHRForm.apptype}
+                        position='top left'
+                      />
                     </Label>
                     <Field type='radio' name='appType' value='frontend' />
                     <Label>Frontend</Label>
@@ -118,7 +130,13 @@ const HRForm = () => {
                     <Label>Backend</Label>
                   </Segment>
                   <Segment>
-                    <Label attached='top'>Cluster environment</Label>
+                    <Label attached='top'>Cluster environment
+                      <Popup
+                        trigger={<Icon name='info' color='green' size='small' circular />}
+                        content={helptextHRForm.cluster}
+                        position='top left'
+                      />
+                    </Label>
                     <Field type='radio' name='cluster' value='prod-bip-app' />
                     <Label>Production</Label>
                     <Field type='radio' name='cluster' value='staging-bip-ap' />
@@ -133,9 +151,17 @@ const HRForm = () => {
                 <Segment>
                   <Input
                     name='image_repository'
-                    label='Container repository'
+                    label={
+                      <Label>Container repository
+                        <Popup
+                          trigger={<Icon name='info' color='green' size='small' circular />}
+                          content={helptextHRForm.containerrepo}
+                          position='top left'
+                        />
+                      </Label>
+                    }
                     type='text'
-                    style={{width: "100%"}}
+                    style={{ width: '100%' }}
                     placeholder={`${values.image_repository}${values.releaseName}`}
                     onChange={handleChange}
                     error={errors.image_repository && touched.image_repository
@@ -149,8 +175,16 @@ const HRForm = () => {
                 <Segment>
                   <Input
                     name='flux_image_tag_pattern'
-                    label='Tag pattern'
-                    style={{width: "100%"}}
+                    label={
+                      <Label>Tag pattern
+                        <Popup
+                          trigger={<Icon name='info' color='green' size='small' circular />}
+                          content={helptextHRForm.tagpattern}
+                          position='top left'
+                        />
+                      </Label>
+                    }
+                    style={{ width: '100%' }}
                     placeholder={`${values.flux_image_tag_pattern}`}
                     onChange={handleChange}
                     error={errors.flux_image_tag_pattern && touched.flux_image_tag_pattern
@@ -165,8 +199,16 @@ const HRForm = () => {
                   <Input
                     name='image_tag'
                     type='text'
-                    label='Image tag'
-                    style={{width: "100%"}}
+                    label={
+                      <Label>Image tag
+                        <Popup
+                          trigger={<Icon name='info' color='green' size='small' circular />}
+                          content={helptextHRForm.imagetag}
+                          position='top left'
+                        />
+                      </Label>
+                    }
+                    style={{ width: '100%' }}
                     placeholder={`${values.image_tag}`}
                     onChange={handleChange}
                     error={errors.image_tag && touched.image_tag
@@ -176,10 +218,12 @@ const HRForm = () => {
                 </Segment>
                 <SegmentGroup horizontal>
                   <Segment textAlign='center'>
-                    <Label attached='top'>Exposed<Popup
-                      trigger={<Icon name='info' color='green' size='small' circular />}
-                      content={helptextHRForm.exposed}
-                      position='top left'/>
+                    <Label attached='top'>Exposed
+                      <Popup
+                        trigger={<Icon name='info' color='green' size='small' circular />}
+                        content={helptextHRForm.exposed}
+                        position='top left'
+                      />
                     </Label>
                     <Field type='checkbox' name='exposed' />
                   </Segment>
@@ -192,7 +236,13 @@ const HRForm = () => {
                     <Field type='checkbox' name='health_probes' />
                   </Segment>
                   <Segment textAlign='center'>
-                    <Label attached='top'>Collect metrics</Label>
+                    <Label attached='top'>Collect metrics
+                      <Popup
+                        trigger={<Icon name='info' color='green' size='small' circular />}
+                        content={helptextHRForm.metrics}
+                        position='top left'
+                      />
+                    </Label>
                     <Field type='checkbox' name='metrics' />
                   </Segment>
                 </SegmentGroup>
