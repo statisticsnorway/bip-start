@@ -139,7 +139,7 @@ const HRForm = () => {
                     </Label>
                     <Field type='radio' name='cluster' value='prod-bip-app' />
                     <Label>Production</Label>
-                    <Field type='radio' name='cluster' value='staging-bip-ap' />
+                    <Field type='radio' name='cluster' value='staging-bip-app' />
                     <Label>Staging</Label>
                   </Segment>
                 </SegmentGroup>
