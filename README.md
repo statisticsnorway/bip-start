@@ -76,8 +76,13 @@ Podman or docker:
 Podman or docker:
 `docker run -p 8180:8180 eu.gcr.io/prod-bip/ssb/stratus/bip-start:<version>`
 
+### Code quality
+
+The codebase is analysed in Sonarcloud
+
 ### Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).y)
+
