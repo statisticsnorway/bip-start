@@ -38,28 +38,16 @@ jobs:
         inputs:
           codeCoverageTool: 'Cobertura'
           summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
-
-      - task: SonarQubePrepare@4
-        displayName: 'SonarQube prepare (unless PR)'
-        # For now, SonarQube can only be used on 'master' branch and hence cannot be run on PRs. 
-        # Therefore, we run it on merge to master. (Yes, a bit too late, but better than nothing.)
-        # This condition combined with the "master branch" trigger for the pipeline, should ensure that
-        # this task only runs for the master branch
-        condition: ne(variables['Build.Reason'], 'PullRequest')
+      - task: SonarCloudPrepare@1
         inputs:
-          SonarQube: '$(sonarQubeServiceConnection)'
+          SonarCloud: 'bipSonarCloud'
+          organization: 'statisticsnorway'
           scannerMode: 'CLI'
-          configMode: 'manual'
-          cliProjectKey: $(Build.DefinitionName)
-          cliProjectName: $(Build.Repository.Name)
-          cliSources: '.'
-      - task: SonarQubeAnalyze@4
-        displayName: 'SonarQube analyze (unless PR)'
-        condition: ne(variables['Build.Reason'], 'PullRequest')
-      - task: SonarQubePublish@4
-        displayName: 'SonarQube publish (unless PR)'
-        condition: ne(variables['Build.Reason'], 'PullRequest')
-
+          configMode: 'file'
+      - task: SonarCloudAnalyze@1
+      - task: SonarCloudPublish@1
+        inputs:
+          pollingTimeoutSec: '300'
       - task: Docker@2
         displayName: 'Docker Build'
         inputs:
