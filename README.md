@@ -1,5 +1,7 @@
 # bip-start
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=statisticsnorway_bip-start)](https://sonarcloud.io/dashboard?id=statisticsnorway_bip-start)
+
 Frontend for bip-initializer; a generator for BIP config
 
 ## Functionality
@@ -85,4 +87,3 @@ The codebase is analysed in Sonarcloud
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).y)
-
