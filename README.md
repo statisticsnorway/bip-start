@@ -1,6 +1,6 @@
 # bip-start
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=statisticsnorway_bip-start)](https://sonarcloud.io/dashboard?id=statisticsnorway_bip-start)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=statisticsnorway_bip-start&metric=coverage)](https://sonarcloud.io/dashboard?id=statisticsnorway_bip-start)
 
 Frontend for bip-initializer; a generator for BIP config
 
