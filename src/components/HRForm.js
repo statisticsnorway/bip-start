@@ -34,7 +34,7 @@ const HRForm = () => {
           metrics: true
         }}
         validationSchema={validationSchema}
-        onSubmit={(values, actions) => {
+        onSubmit={(values, _actions) => {
           console.log('Data in form: ', values)
           callGenerator(({ data: values }))
           console.log('Response data: ', { data })
