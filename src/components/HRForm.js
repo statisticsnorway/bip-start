@@ -34,7 +34,7 @@ const HRForm = () => {
           metrics: true
         }}
         validationSchema={validationSchema}
-        onSubmit={(values, actions) => {
+        onSubmit={(values, _actions) => {
           console.log('Data in form: ', values)
           callGenerator(({ data: values }))
           console.log('Response data: ', { data })
@@ -254,7 +254,7 @@ const HRForm = () => {
           </Form>
         )}
       </Formik>
-      {data && !loading && !error && <ResponseView data={data} allOK={true} />}
+      {data && !loading && !error && <ResponseView data={data} allOK />}
       {error && <ResponseView data={error.message} allOK={false} />}
     </div>
   )
