@@ -254,7 +254,7 @@ const HRForm = () => {
           </Form>
         )}
       </Formik>
-      {data && !loading && !error && <ResponseView data={data} allOK={true} />}
+      {data && !loading && !error && <ResponseView data={data} allOK />}
       {error && <ResponseView data={error.message} allOK={false} />}
     </div>
   )

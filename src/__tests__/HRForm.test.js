@@ -37,5 +37,6 @@ test('Renders data when backend call is ok', () => {
   const { getByText } = setup()
 
   expect(getByText(/tag: main-8DFB94297F11440EB9B/)).toBeInTheDocument()
-  expect(getByText(/git: ssh:\/\/git@github.com\/statisticsnorway\/platform-dev/)).toBeInTheDocument()
+  expect(getByText(/repository: https:\/\/raw.githubusercontent.com\/statisticsnorway\/helm-charts\/main/)).toBeInTheDocument()
+  expect(getByText(/valuesFrom:/)).toBeInTheDocument()
 })
